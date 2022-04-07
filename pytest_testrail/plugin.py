@@ -184,7 +184,7 @@ class PyTestRailPlugin(object):
             self.testplan_id = 0
             if self.skip_missing:
                 tests_list = [
-                    test.get('case_id') for test in self.get_tests(self.testrun_id)
+                    test.get('case_id') for test in self.get_tests(self.testrun_id).get("tests")
                 ]
                 for item, case_id in items_with_tr_keys:
                     if not set(case_id).intersection(set(tests_list)):
